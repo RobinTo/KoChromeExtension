@@ -6,8 +6,25 @@ var battlefield = function(){
     var myStrikeAction = res["myStrikeAction"];
     _checkPlayers(myStrikeAction);
 
-    $($('.table_lines')[0]).before('My strike action: ' + _formatNumber(myStrikeAction));
+    if($('#showAllPlayers').length <= 0){
+      $($('.table_lines')[0]).before('My strike action: ' + _formatNumber(myStrikeAction)+ " ");
+
+      $($('.table_lines')[0]).before("<button id='showAllPlayers'>Show all players</button>");
+
+      $('#showAllPlayers').click(function(){
+        if($('#showAllPlayers').hasClass('shown')){
+          $('#showAllPlayers').removeClass('shown');
+          $('#showAllPlayers').text('Show all players');
+          _checkPlayers(myStrikeAction);
+        } else {
+          $('#showAllPlayers').addClass('shown');
+          $('#showAllPlayers').text('Filter players');
+          $('table.battlefield').find('tr.player').show();
+        }
+      });
+    }
   });
+
 
   function _checkPlayers(myStrikeAction){
     var players = $('table.battlefield').find('tr.player');
