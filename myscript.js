@@ -1,22 +1,6 @@
 var pathName = window.location.pathname;
 
 $(document).on('ready', function(){
-    console.log('document ready');
-})
-
-$(document).on('load', function(){
-    console.log('document load');
-})
-
-$(document).on('load', function(){
-    console.log('document load');
-})
-
-$(document).on('resize', function(){
-    console.log('document resize');
-})
-
-$(document).on('ready', function(){
   _handlePaths();
 });
 

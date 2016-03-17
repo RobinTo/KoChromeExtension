@@ -43,7 +43,7 @@ var battlefield = function(){
       armySize = _parseNumber(armySize);
       gold = _parseNumber(gold);
 
-      var goldLimit = 1000000;
+      var goldLimit = 10000000;
       if(gold < goldLimit){
         $(players[i]).hide();
       } else {

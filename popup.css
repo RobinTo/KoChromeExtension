@@ -1,0 +1,23 @@
+
+body {
+  width: 250px;
+  min-height: 400px;
+}
+
+span.user{
+  cursor: pointer;
+  color: blue;
+}
+
+span.user.red{
+  color: red;
+}
+span.user.green{
+  color: green
+}
+
+button{
+  background: lightgray;
+  border: 1px solid black;
+  border-radius: 4px;
+}

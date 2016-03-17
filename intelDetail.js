@@ -13,19 +13,13 @@ var intelDetail = function(){
       $weaponsTable = $(tables[3]);
 
   var strikeAction = $($($statsTable.find('tr')[1]).find('td')[1]).text(),
-      defensiveAction = $($($statsTable.find('tr')[2]).find('td')[1]).text();
+      defensiveAction = $($($statsTable.find('tr')[2]).find('td')[1]).text(),
+      userId = $('input[name=id]').attr('value');
 
-  strikeAction = _parseNumber(strikeAction);
   defensiveAction = _parseNumber(defensiveAction);
 
-  var saveObject = {};
-  saveObject[name] = {"strike": strikeAction, "defense": defensiveAction};
-
   if(defensiveAction > 0){
-    chrome.storage.local.set(saveObject, function() {
-      // Notify that we saved.
-      console.log('Settings saved for '  + name);
-    });
+    _setValueInStorage(name, ["defense", "userId"], [defensiveAction, userId]);
   }
 }
 
