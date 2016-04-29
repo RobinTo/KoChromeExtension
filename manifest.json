@@ -18,7 +18,7 @@
     {
       "matches": ["http://www.kingsofchaos.com/*"],
       "css": ["mystyles.css"],
-      "js": ["jquery.js","utils.js","intelDetail.js","battlefield.js","base.js","myscript.js"]
+      "js": ["jquery.js","utils.js","intelDetail.js","battlefield.js","base.js","recruiter.js","myscript.js"]
     }
   ]
 }

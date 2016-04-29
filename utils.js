@@ -24,11 +24,6 @@ function _formatNumber(num){
 }
 
 function _updateMultipleValues(key, valueNamesList, newValuesList){
-
-  console.log(valueNamesList, newValuesList);
-  console.log(valueNamesList.length !== newValuesList.length);
-  console.log(typeof(valueNamesList) !== "object");
-  console.log(typeof(newValueList) !== "object");
   if(valueNamesList.length !== newValuesList.length || typeof(valueNamesList) !== "object" || typeof(newValuesList) !== "object"){
     console.log('Value names length was not equal to new values length or not arrays at all.');
     return;

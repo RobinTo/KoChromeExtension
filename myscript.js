@@ -22,6 +22,9 @@ function _handlePaths(){
     case "/inteldetail.php":
       intelDetail();
       break;
+    case "/recruit.php":
+      recruiter();
+      break;
     default:
       console.log('No actions defined for path:');
       console.log(pathName);

@@ -43,7 +43,7 @@ var battlefield = function(){
       armySize = _parseNumber(armySize);
       gold = _parseNumber(gold);
 
-      var goldLimit = 10000000;
+      var goldLimit = 100000;
       if(gold < goldLimit){
         $(players[i]).hide();
       } else {
@@ -61,7 +61,26 @@ var battlefield = function(){
                   className = "lowerStrikeAction";
                 }
 
-                $($pItem.find('td')[2]).append(" (<span class='"+className+"'>" + _formatNumber(defense) + "</span>)");
+                console.log(res[n]["lastUpdated"]);
+                var date = res[n]["lastUpdated"],
+                    timeDelta = 0,
+                    timeDeltaInHours = -1,
+                    timeDeltaFormatted = "No time";
+                if(date && typeof date !== 'undefined' && date !== null){
+                  date = new Date(JSON.parse(date));
+                  timeDelta = new Date() - date;
+                  timeDeltaInHours = Math.floor(timeDelta / (1000*60*60))
+
+                  if(timeDeltaInHours === 0){
+                    timeDeltaFormatted = "<1 hour ago";
+                  } else if(timeDeltaInHours > 48){
+                    timeDeltaFormatted = ">2 days ago";
+                  } else {
+                    timeDeltaFormatted = timeDeltaInHours + " hours ago";
+                  }
+                }
+
+                $($pItem.find('td')[2]).append(" - <span class='"+className+"'>" + _formatNumber(defense) + " </span> " + timeDeltaFormatted + "");
               }
           });
         })();

@@ -19,7 +19,7 @@ var intelDetail = function(){
   defensiveAction = _parseNumber(defensiveAction);
 
   if(defensiveAction > 0){
-    _setValueInStorage(name, ["defense", "userId"], [defensiveAction, userId]);
+    _setValueInStorage(name, ["defense", "userId", "lastUpdated"], [defensiveAction, userId, JSON.stringify(new Date())]);
   }
 }
 
