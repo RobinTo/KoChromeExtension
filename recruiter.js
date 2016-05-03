@@ -5,9 +5,11 @@ var recruiter = function(){
     if(keyCodeToLetter.hasOwnProperty(event.keyCode)){
       console.log(keyCodeToLetter[event.keyCode]);
 
+      var img = $('form[name="image_clickthrough_form"]').find('img')[0].src;
       chrome.runtime.sendMessage({
-        url: $('form[name="image_clickthrough_form"]').find('img')[0].src,
-        filename: "./imgs/" + keyCodeToLetter[event.keyCode] + "/test.jpg" // Optional
+        url: img,
+        filename: "./imgs/" + keyCodeToLetter[event.keyCode] + "/" + keyCodeToLetter[event.keyCode] + ".jpg",
+        conflictAction: "uniquify"
       }, function(response){
         console.log(response);
       });
