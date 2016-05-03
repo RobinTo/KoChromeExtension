@@ -4,6 +4,14 @@ var recruiter = function(){
   $( document ).on( "keydown", function( event ) {
     if(keyCodeToLetter.hasOwnProperty(event.keyCode)){
       console.log(keyCodeToLetter[event.keyCode]);
+
+      chrome.runtime.sendMessage({
+        url: $('form[name="image_clickthrough_form"]').find('img')[0].src,
+        filename: "./imgs/" + keyCodeToLetter[event.keyCode] + "/test.jpg" // Optional
+      }, function(response){
+        console.log(response);
+      });
+
       $('input[value="' + keyCodeToLetter[event.keyCode] + '"]').click();
     }
   });

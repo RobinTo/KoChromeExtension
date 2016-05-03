@@ -12,7 +12,8 @@
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/",
-    "storage"
+    "storage",
+    "downloads"
   ],
   "content_scripts": [
     {
@@ -20,5 +21,8 @@
       "css": ["mystyles.css"],
       "js": ["jquery.js","utils.js","intelDetail.js","battlefield.js","base.js","recruiter.js","myscript.js"]
     }
-  ]
+  ],
+  "background":{
+    "scripts": ["background.js"]
+  }
 }
